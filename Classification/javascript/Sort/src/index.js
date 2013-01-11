@@ -19,8 +19,9 @@ var getRondamList = function(L, num, max) {
 var To16 = function(n) { return (n < 16 ? '' : To16(parseInt(n / 16))) + '' + [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'][n % 16]; }
 var setColums = function(canvas, L, width, height) {
     var len = L.length;
-    width = width || 2;
+    width = parseInt(width) || 2;
 	var _float = width - parseInt(width);
+	
 	var _f = 0;
     for (var i = 0; i < len; ++i) {
         var R = To16(parseInt(L[i] / height * 256));

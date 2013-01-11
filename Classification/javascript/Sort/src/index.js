@@ -1,4 +1,4 @@
-﻿var columns_num = 200;
+var columns_num = 200;
 
 var finishSort = function(canvas){
 	canvas.css("backgroundColor","#94F4d6");

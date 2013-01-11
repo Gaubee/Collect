@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Untitled Page</title>
+    <link rel="stylesheet" href="src/index.css" />
+
+    <script type="text/javascript" src="src/jquery.js"></script>
+
+    <script type="text/javascript" src="src/sort.js"></script>
+
+</head>
+<body>
+    <div id="nav">
+        <input type="button" value="添加对比排序" onclick="newSortFrame()">
+        <input type="button" value="同时开始排序" onclick="asySort()">
+    </div>
+    <!--<iframe scrolling="no" class="sort-form" src="src/index.html"></iframe>
+    <iframe scrolling="no" class="sort-form" src="src/index.html"></iframe>-->
+</body>
+</html>
+
+<script type="text/javascript">
+    var newSortFrame = function() {
+        var width = $(window).width();
+        var height = $(window).height();
+        ////console.log(width);
+        $("<iframe>").attr({ "scrolling": "no", "src": "src/index.html" }).addClass("sort-form").appendTo("body");
+        var iframes = $("iframe");
+        //alert(iframes);
+		var fwidth =  (width / iframes.length)-10,fheight  =  height - 70;
+        iframes.each(function(i) {
+            $(this).css({ "width":fwidth, height:fheight });        
+            if(i!= iframes.length-1){
+						var innerDoc = this.contentDocument || this.document;
+						innerDoc = $(innerDoc.body);
+						//console.log(innerDoc);
+						//alert(width + "|" + height);
+						//console.log(innerDoc.find("#Mwidth").val());
+						innerDoc.find("#Mwidth").val(fwidth);
+						innerDoc.find("#Mheight").val(fheight);
+						$(innerDoc).find("#reLayout").click();
+						//console.log(innerDoc.find("#reLayout"));
+			}else{
+				this.onload = function() {
+						var innerDoc = this.contentDocument || this.document;
+						innerDoc = $(innerDoc.body);
+						//console.log(innerDoc);
+						//alert(width + "|" + height);
+						//console.log(innerDoc.find("#Mwidth"));
+						innerDoc.find("#Mwidth").val(fwidth);
+						innerDoc.find("#Mheight").val(fheight-160);
+						$(innerDoc).find("#reLayout").click();
+						//console.log(innerDoc.find("#reLayout"));
+						//alert("sda");
+				}
+			}
+        });
+    }
+    var asySort = function() {
+        var iframes = $("iframe");
+        iframes.each(function() {
+            innerDoc = this.contentDocument || this.document;
+            innerDoc = $(innerDoc.body);
+            $(innerDoc).find("#reLayout").click();
+            $(innerDoc).find("#beginSort").click();
+        });
+    }
+    newSortFrame();
+</script>
+

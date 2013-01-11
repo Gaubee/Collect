@@ -13,6 +13,7 @@
     <div id="nav">
         <input type="button" value="添加对比排序" onclick="newSortFrame()">
         <input type="button" value="同时开始排序" onclick="asySort()">
+		<span id="title">本排序动画改编自<em>期末数据结构课程设计（406组）的<a href = "">C++算法</a></em>，旨在提供直观的排序流程，仅供学习交流。</span>
     </div>
     <!--<iframe scrolling="no" class="sort-form" src="src/index.html"></iframe>
     <iframe scrolling="no" class="sort-form" src="src/index.html"></iframe>-->
@@ -36,8 +37,9 @@
 						//console.log(innerDoc);
 						//alert(width + "|" + height);
 						//console.log(innerDoc.find("#Mwidth").val());
+						console.log(fwidth);
 						innerDoc.find("#Mwidth").val(fwidth);
-						innerDoc.find("#Mheight").val(fheight);
+						innerDoc.find("#Mheight").val(fheight-160);
 						$(innerDoc).find("#reLayout").click();
 						//console.log(innerDoc.find("#reLayout"));
 			}else{
@@ -47,6 +49,7 @@
 						//console.log(innerDoc);
 						//alert(width + "|" + height);
 						//console.log(innerDoc.find("#Mwidth"));
+						console.log(fwidth);
 						innerDoc.find("#Mwidth").val(fwidth);
 						innerDoc.find("#Mheight").val(fheight-160);
 						$(innerDoc).find("#reLayout").click();

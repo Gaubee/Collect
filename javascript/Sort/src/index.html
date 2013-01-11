@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Untitled Page</title>
+    <link rel="stylesheet" href="index.css" />
+
+    <script type="text/javascript" src="jquery.js"></script>
+
+    <script type="text/javascript" src="sort.js"></script>
+
+</head>
+<body>
+    <div class="nav">
+		<p>
+			<label for="">动画停顿（大于20）</label>
+			<input  id="Mfps" type="text" value="20"  onchange="setfpsTime(this)" style="width:39px;" /> ms
+		</p>
+		<p>
+			<label for="">排序个数（不超过200）</label>
+			<input  id="Mnum"type="text" value="100"  onchange="setcolumns_num(this)" style="width:39px;" />
+		</p>
+		<p>
+			<label for="">选择排序种类</label>
+			<select id="sorttype">
+				<option value="1" onclick = "SortType = HeapSort" >堆排序</option>
+				<option value="2" onclick = "SortType = MergeSort">二分归并排序</option>
+				<option value="3" onclick = "SortType = QuickSort" >快速排序</option>
+				<option value="4" onclick = "SortType = BubbleSort">冒泡排序</option>
+				<option value="5" onclick = "SortType = ShellSort" >希尔排序</option>
+				<option value="6" onclick = "SortType = InsertSort">直接插入排序</option>
+			</select>
+		</p>
+        <input id="beginSort" type="button" value="开始排序" onclick="BeginSort()" />
+        <input style="margin-left:65px;" id="reLayout" type="button" value="更新" onclick="Initcanvas()" />
+        <input id="Mwidth" type="hidden" value="400"/>
+        <input id="Mheight" type="hidden" value="300"/>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript" src="index.js"></script>
+
